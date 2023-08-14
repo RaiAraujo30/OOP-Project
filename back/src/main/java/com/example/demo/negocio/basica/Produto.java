@@ -57,6 +57,13 @@ public class Produto {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    public Produto(String nome, Float preco, int quantidade, String codigo) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.codigo = codigo;
+    }
     
     
     

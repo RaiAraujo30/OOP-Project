@@ -48,6 +48,12 @@ public class FormaDePagamento {
     public void setHibrido(String hibrido) {
         this.hibrido = hibrido;
     }
+    public FormaDePagamento(String dinheiro, String cartao, String pix, String hibrido) {
+        this.dinheiro = dinheiro;
+        this.cartao = cartao;
+        this.pix = pix;
+        this.hibrido = hibrido;
+    }
 
     
 }

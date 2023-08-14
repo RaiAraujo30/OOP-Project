@@ -38,6 +38,11 @@ public class funcionario {
     public void setFuncionario(String funcionario) {
         Funcionario = funcionario;
     }
+    public funcionario(String item, String cliente, String funcionario) {
+        this.item = item;
+        this.cliente = cliente;
+        Funcionario = funcionario;
+    }
 
     
 

@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 public class Endereço {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne
+
 
     private long id;
     private String rua;
@@ -52,6 +54,13 @@ public class Endereço {
         return cidade;
     }
     public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+    public Endereço(String rua, int numero, String cep, String bairro, String cidade) {
+        this.rua = rua;
+        this.numero = numero;
+        this.cep = cep;
+        this.bairro = bairro;
         this.cidade = cidade;
     }
 

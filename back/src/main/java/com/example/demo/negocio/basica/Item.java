@@ -49,6 +49,17 @@ public class Item {
         this.quantidade = quantidade;
     }
 
+    public void carrinho(produto u, quantidade x){
+        this.produto= new ArrayList<produto>();
+
+    
+    }
+    public Item(String produto, String preco, String quantidade) {
+        this.produto = produto;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
     
     
     

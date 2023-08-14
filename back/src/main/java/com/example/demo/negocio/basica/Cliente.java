@@ -26,5 +26,8 @@ public class cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public cliente(String nome) {
+        this.nome = nome;
+    }
     
 }

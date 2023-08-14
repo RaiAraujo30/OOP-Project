@@ -30,6 +30,10 @@ public class Marcas {
     public void setNomemarca(String nomemarca) {
         this.nomemarca = nomemarca;
     }
+
+    public Marcas(String nomemarca) {
+        this.nomemarca = nomemarca;
+    }
     
     
     

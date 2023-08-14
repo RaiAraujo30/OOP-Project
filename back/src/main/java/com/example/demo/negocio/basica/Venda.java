@@ -48,6 +48,12 @@ public class Venda {
     public void setFuncionario(String funcionario) {
         this.funcionario = funcionario;
     }
+
+    public Venda(String item, String cliente, String funcionario) {
+        this.item = item;
+        this.cliente = cliente;
+        this.funcionario = funcionario;
+    }
     
     
     

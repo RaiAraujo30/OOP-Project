@@ -8,9 +8,15 @@ import jakarta.persistence.Id;
 @Entity
 public class categoria {
     @Id
+
+    @OneToMany
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
+    public categoria(long id) {
+        this.id = id;
+    }
+
     private String Nomedamarca;
 
     
@@ -30,6 +36,11 @@ public class categoria {
     public void setId(long id) {
         this.id = id;
     }
+
+    public categoria(String nomedamarca) {
+        Nomedamarca = nomedamarca;
+    }
+
     
 
     
