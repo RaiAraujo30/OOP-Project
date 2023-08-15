@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 
@@ -12,7 +13,10 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
+
+    @ManyToOne
     private Produto produto;
+    
     private int quantidade;
     public long getId() {
         return id;

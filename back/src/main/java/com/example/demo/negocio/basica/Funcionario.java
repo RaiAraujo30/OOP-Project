@@ -15,30 +15,34 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-    
+
     private String nome;
     private String cpf;
 
     @OneToOne
-	@Cascade(CascadeType.ALL)
-	private Endereco endereco;
-    
-    
+    @Cascade(CascadeType.ALL)
+    private Endereco endereco;
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getCpf() {
         return cpf;
     }
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
     public Endereco getEndereco() {
         return endereco;
     }
+
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
@@ -48,7 +52,5 @@ public class Funcionario {
         this.cpf = cpf;
         this.endereco = endereco;
     }
-
-    
 
 }

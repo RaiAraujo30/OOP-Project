@@ -4,9 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 
@@ -24,7 +28,9 @@ public class GerenciarFornecedores {
     public void setId(long id) {
         this.id = id;
     }
-    
+
+    @OneToMany
+    @Cascade(CascadeType.ALL)
     private List<Fornecedor> fornecedores;
 
     public GerenciarFornecedores() {
