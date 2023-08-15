@@ -1,9 +1,13 @@
 package com.example.demo.negocio.basica;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Funcionario {
@@ -14,7 +18,11 @@ public class Funcionario {
     
     private String nome;
     private String cpf;
-    private Endereco endereco;
+
+    @OneToOne
+	@Cascade(CascadeType.ALL)
+	private Endereco endereco;
+    
     
     public String getNome() {
         return nome;
