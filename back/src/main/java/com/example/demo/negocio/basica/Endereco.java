@@ -1,4 +1,4 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -6,10 +6,10 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Endereço {
+public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToOne
+    
 
 
     private long id;
@@ -18,6 +18,7 @@ public class Endereço {
     private String cep;
     private String bairro;
     private String cidade;
+    private String estado;
 
     
     public long getId() {
@@ -56,13 +57,24 @@ public class Endereço {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    public Endereço(String rua, int numero, String cep, String bairro, String cidade) {
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+      public String getEstado() {
+        return estado;
+    }
+
+    public Endereco(String rua, int numero, String cep, String bairro, String cidade, String estado) {
         this.rua = rua;
         this.numero = numero;
         this.cep = cep;
         this.bairro = bairro;
         this.cidade = cidade;
+        this.estado = estado;
     }
+  
+    
 
     
 

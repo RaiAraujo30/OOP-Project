@@ -1,4 +1,4 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,42 +6,39 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class funcionario {
+public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-    private String item;
-    private String cliente;
-    private String Funcionario;
-    public long getId() {
-        return id;
+    
+    private String nome;
+    private String cpf;
+    private Endereco endereco;
+    
+    public String getNome() {
+        return nome;
     }
-    public void setId(long id) {
-        this.id = id;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    public String getItem() {
-        return item;
+    public String getCpf() {
+        return cpf;
     }
-    public void setItem(String item) {
-        this.item = item;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
-    public String getCliente() {
-        return cliente;
+    public Endereco getEndereco() {
+        return endereco;
     }
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
-    public String getFuncionario() {
-        return Funcionario;
-    }
-    public void setFuncionario(String funcionario) {
-        Funcionario = funcionario;
-    }
-    public funcionario(String item, String cliente, String funcionario) {
-        this.item = item;
-        this.cliente = cliente;
-        Funcionario = funcionario;
+
+    public Funcionario(String nome, String cpf, Endereco endereco) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
     }
 
     

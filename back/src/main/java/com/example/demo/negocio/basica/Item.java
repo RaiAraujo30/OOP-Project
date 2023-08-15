@@ -1,4 +1,4 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,54 +12,37 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-    private String produto;
-    private String preco;
-    private String quantidade;
-
-
+    private Produto produto;
+    private int quantidade;
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
-
-    public String getProduto() {
+    public Produto getProduto() {
         return produto;
     }
-
-    public void setProduto(String produto) {
+    public void setProduto(Produto produto) {
         this.produto = produto;
     }
-
-    public String getPreco() {
-        return preco;
-    }
-
-    public void setPreco(String preco) {
-        this.preco = preco;
-    }
-
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
-
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
-    public void carrinho(produto u, quantidade x){
-        this.produto= new ArrayList<produto>();
+    public double getTotal() {
+        return produto.getPreco() * quantidade;
+    }
+
+    public Item(Produto produto, int quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+    }
 
     
-    }
-    public Item(String produto, String preco, String quantidade) {
-        this.produto = produto;
-        this.preco = preco;
-        this.quantidade = quantidade;
-    }
-
     
     
     

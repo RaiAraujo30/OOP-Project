@@ -1,4 +1,4 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,57 +13,82 @@ public class Produto {
 
     private long id;
     private String nome;
-    private Float preco;
-    private int quantidade;
-    private String codigo;
+    private double preco;
+    private Marcas marca;
+    private Categoria categoria;
 
+    
 
     public long getId() {
         return id;
     }
 
+
+
     public void setId(long id) {
         this.id = id;
     }
+
+
 
     public String getNome() {
         return nome;
     }
 
+
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Float getPreco() {
+
+
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(Float preco) {
+
+
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+
+
+    public Marcas getMarca() {
+        return marca;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+
+
+    public void setMarca(Marcas marca) {
+        this.marca = marca;
     }
 
-    public String getCodigo() {
-        return codigo;
+
+
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public Produto(String nome, Float preco, int quantidade, String codigo) {
+
+
+    public Produto(String nome, double preco, Marcas marca, Categoria categoria) {
         this.nome = nome;
         this.preco = preco;
-        this.quantidade = quantidade;
-        this.codigo = codigo;
+        this.marca = marca;
+        this.categoria = categoria;
     }
+
+
+
+    
     
     
     

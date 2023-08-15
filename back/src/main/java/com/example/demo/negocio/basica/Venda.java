@@ -1,4 +1,8 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,49 +16,72 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-    private String item;
-    private String cliente;
-    private String funcionario;
+    private Cliente cliente;
+    private List<Item> itens;
+    private Date data;
+    private double total;
+    private Funcionario funcionario;
+    private FormaDePagamento formaDePagamento;
 
-
-    public long getId() {
-        return id;
+    public List<Item> getItens() {
+        return itens;
     }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
     }
-
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
-    }
-
-    public String getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
-
-    public void setCliente(String cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public String getFuncionario() {
+    public Date getData() {
+        return data;
+    }
+    public void setData(Date data) {
+        this.data = data;
+    }
+    public double getTotal() {
+        return total;
+    }
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    public Funcionario getFuncionario() {
         return funcionario;
     }
-
-    public void setFuncionario(String funcionario) {
+    public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
+    
 
-    public Venda(String item, String cliente, String funcionario) {
-        this.item = item;
+    public FormaDePagamento getFormaDePagamento() {
+        return formaDePagamento;
+    }
+    public void setFormaDePagamento(FormaDePagamento formaDePagamento) {
+        this.formaDePagamento = formaDePagamento;
+    }
+    public Venda(Cliente cliente, Funcionario funcionario) {
         this.cliente = cliente;
         this.funcionario = funcionario;
+        
+        this.itens = new ArrayList<>();
+        this.data = new Date();
+        this.total = 0.0;
     }
-    
-    
-    
+
+    public void adicionarItem(Item item) {
+        itens.add(item);
+        total += item.getTotal();
+    }
+    public void removerItem(Item item){
+        itens.remove(item);
+        total -= item.getTotal();
+    }
+
+    public void realizarVenda(List<Item> itens) {
+        for (Item item : itens) {
+            adicionarItem(item);
+        }
+    }
 }

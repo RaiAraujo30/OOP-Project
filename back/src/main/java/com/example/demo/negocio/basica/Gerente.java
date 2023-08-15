@@ -1,4 +1,7 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,9 +10,10 @@ import jakarta.persistence.Id;
 
 @Entity
 
-public class Gerente {
+public class Gerente extends Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 
     private long id;
 
@@ -20,6 +24,22 @@ public class Gerente {
     public void setId(long id) {
         this.id = id;
     }
-    
-    
+
+    private List<RelatorioVendas> relatorios;
+
+    public Gerente(String nome, String cpf, Endereco endereco) {
+        super(nome, cpf,endereco);
+        this.relatorios = new ArrayList<>();
+    }
+
+    public void gerarRelatorioVendas(String periodo) {
+        RelatorioVendas relatorio = new RelatorioVendas(periodo);
+        relatorios.add(relatorio);
+    }
+
+    public List<RelatorioVendas> getRelatorios() {
+        return relatorios;
+    }
 }
+    
+    

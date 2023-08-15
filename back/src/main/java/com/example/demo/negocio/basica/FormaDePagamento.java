@@ -1,4 +1,4 @@
-package negocio.basica;
+package com.example.demo.negocio.basica;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -48,6 +48,7 @@ public class FormaDePagamento {
     public void setHibrido(String hibrido) {
         this.hibrido = hibrido;
     }
+    
     public FormaDePagamento(String dinheiro, String cartao, String pix, String hibrido) {
         this.dinheiro = dinheiro;
         this.cartao = cartao;

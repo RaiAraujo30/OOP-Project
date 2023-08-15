@@ -7,29 +7,15 @@ import jakarta.persistence.Id;
 
 @Entity
 
-public class Cliente {
+public class Fornecedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
 
     private long id;
     private String nome;
-    private String cpf;
-    private Endereco endereco;
-
-    
-
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    public Endereco getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+    private String cnpj;
+    private String contato;
     public long getId() {
         return id;
     }
@@ -42,12 +28,25 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public Cliente(String nome, String cpf, Endereco endereco) {
+    public String getCnpj() {
+        return cnpj;
+    }
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+    public String getContato() {
+        return contato;
+    }
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+    public Fornecedor(String nome, String cnpj, String contato) {
         this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
+        this.cnpj = cnpj;
+        this.contato = contato;
     }
 
     
-    
+
+
 }
