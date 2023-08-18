@@ -1,6 +1,7 @@
 package com.example.demo.negocio.basica;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -34,7 +35,7 @@ public class Gerente extends Funcionario {
         this.relatorios = new ArrayList<>();
     }
 
-    public void gerarRelatorioVendas(String periodo) {
+    public void gerarRelatorioVendas(Date periodo) {
         RelatorioVendas relatorio = new RelatorioVendas(periodo);
         relatorios.add(relatorio);
     }

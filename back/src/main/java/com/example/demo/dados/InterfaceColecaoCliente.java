@@ -9,5 +9,9 @@ import com.example.demo.negocio.basica.Cliente;
 
 @Repository
 public interface InterfaceColecaoCliente extends JpaRepository<Cliente, Long>{
+
     public Cliente findById(long id);
+    public Cliente findByCpf(String cpf);
+    public List<Cliente> findByNomeContainingIgnoreCase(String nome);
+
 }

@@ -16,7 +16,7 @@ public class RelatorioVendas {
 
     private long id;
     private Date data;
-    private String periodo;
+    private Date periodo;
     private double totalVendas;
 
     public Date getData() {
@@ -25,10 +25,10 @@ public class RelatorioVendas {
     public void setData(Date data) {
         this.data = data;
     }
-    public String getPeriodo() {
+    public Date getPeriodo() {
         return periodo;
     }
-    public void setPeriodo(String periodo) {
+    public void setPeriodo(Date periodo) {
         this.periodo = periodo;
     }
     public double getTotalVendas() {
@@ -38,7 +38,7 @@ public class RelatorioVendas {
         this.totalVendas = totalVendas;
     }
 
-    public RelatorioVendas(String periodo) {
+    public RelatorioVendas(Date periodo) {
         this.data = new Date();
         this.periodo = periodo;
         this.totalVendas = 0.0; // Inicialmente o total de vendas é zero
