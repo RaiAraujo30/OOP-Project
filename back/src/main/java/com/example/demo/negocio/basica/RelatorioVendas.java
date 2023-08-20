@@ -38,6 +38,9 @@ public class RelatorioVendas {
         this.totalVendas = totalVendas;
     }
 
+    public RelatorioVendas() {
+    }
+
     public RelatorioVendas(Date periodo) {
         this.data = new Date();
         this.periodo = periodo;

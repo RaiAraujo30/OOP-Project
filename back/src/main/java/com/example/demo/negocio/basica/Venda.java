@@ -81,9 +81,13 @@ public class Venda {
         this.formaDePagamento = formaDePagamento;
     }
 
+    public Venda() {
+    }
+
     public Venda(Cliente cliente, Funcionario funcionario) {
         this.cliente = cliente;
         this.funcionario = funcionario;
+
 
         this.itens = new ArrayList<>();
         this.data = new Date();
