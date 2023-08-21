@@ -1,3 +1,4 @@
+
 package com.example.demo.dados;
 
 import java.util.Date;
@@ -15,7 +16,6 @@ public interface InterfaceColecaoVenda extends JpaRepository<Venda, Long> {
     public List<Venda> findByDataBetween(Date dataInicio, Date dataFim);
     public List<Venda> findByTotalGreaterThanEqual(double valor);
     public List<Venda> findByTotalLessThanEqual(double valor);
-    public List<Venda> findByFuncionario(String nome);
     public List<Venda> findByClienteNomeContainingIgnoreCase(String nome);
 
 }

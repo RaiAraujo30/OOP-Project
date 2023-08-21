@@ -1,3 +1,4 @@
+
 package com.example.demo.dados;
 
 import java.util.Date;
@@ -14,8 +15,6 @@ public interface InterfaceColecaoRelatorioVendas extends JpaRepository<Relatorio
     public RelatorioVendas findById(long id);
 
     public List<RelatorioVendas> findByData(Date data);
-
-    public List<RelatorioVendas> findByPeriodo(Date dataInicio, Date dataFim);
 
     public List<RelatorioVendas> findByTotalVendas(double totalVendas);
 

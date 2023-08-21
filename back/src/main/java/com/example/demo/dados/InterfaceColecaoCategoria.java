@@ -10,7 +10,7 @@ import com.example.demo.negocio.basica.Categoria;
 @Repository
 public interface InterfaceColecaoCategoria extends JpaRepository<Categoria, Long>{
     
-    public List<Categoria> findByNomecategoriaContainingIgnoreCase(String nomecategoria);
+    public Categoria findByNomecategoria(String nomecategoria);
 
 
 }
