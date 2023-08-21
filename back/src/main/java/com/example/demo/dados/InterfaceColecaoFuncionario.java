@@ -14,6 +14,6 @@ public interface InterfaceColecaoFuncionario extends JpaRepository<Funcionario, 
     public Funcionario findById(long id);
     public Funcionario findByCpf(String cpf);
     public List<Funcionario> findByNomeContainingIgnoreCase(String nome);
-    
+    public List<Funcionario> findByEnderecoContainingIgnoreCase(String endereco);
 
 }

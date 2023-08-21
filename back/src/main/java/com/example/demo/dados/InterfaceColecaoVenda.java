@@ -16,6 +16,10 @@ public interface InterfaceColecaoVenda extends JpaRepository<Venda, Long> {
     public List<Venda> findByDataBetween(Date dataInicio, Date dataFim);
     public List<Venda> findByTotalGreaterThanEqual(double valor);
     public List<Venda> findByTotalLessThanEqual(double valor);
+<<<<<<< HEAD
+=======
+    public List<Venda> findByFuncionarioNomeContainingIgnoreCase(String nome);
+>>>>>>> parent of 6e8d575 (refazendo as interfaces p/ o test)
     public List<Venda> findByClienteNomeContainingIgnoreCase(String nome);
 
 }
