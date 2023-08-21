@@ -1,4 +1,3 @@
-
 package com.example.demo.dados;
 
 import java.util.Date;
@@ -17,9 +16,13 @@ public interface InterfaceColecaoVenda extends JpaRepository<Venda, Long> {
     public List<Venda> findByTotalGreaterThanEqual(double valor);
     public List<Venda> findByTotalLessThanEqual(double valor);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public List<Venda> findByFuncionarioNomeContainingIgnoreCase(String nome);
 >>>>>>> parent of 6e8d575 (refazendo as interfaces p/ o test)
+=======
+    public List<Venda> findByFuncionario(String nome);
+>>>>>>> parent of 11d4827 (Iniciando cadastro)
     public List<Venda> findByClienteNomeContainingIgnoreCase(String nome);
 
 }

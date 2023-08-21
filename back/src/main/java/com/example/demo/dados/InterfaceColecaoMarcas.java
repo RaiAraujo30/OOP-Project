@@ -11,6 +11,6 @@ import com.example.demo.negocio.basica.Marcas;
 public interface InterfaceColecaoMarcas extends JpaRepository<Marcas, Long>{
 
     public Marcas findById(long id);
-    public List<Marcas> findByNomemarcaContainingIgnoreCase(String nomemarca);
+    public List<Marcas> findByNomeContainingIgnoreCase(String nomemarca);
 
 }
