@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dados.InterfaceColecaoCategoria;
 import com.example.demo.negocio.basica.Categoria;
-import com.example.demo.negocio.cadastro.exception.CategoriaDuplicadaException;
-import com.example.demo.negocio.cadastro.exception.CategoriaInvalidaException;
+import com.example.demo.negocio.cadastro.exception.exceptionCategoria.CategoriaDuplicadaException;
+import com.example.demo.negocio.cadastro.exception.exceptionCategoria.CategoriaInvalidaException;
 
 @Service
 public class CadastroCategoria implements InterfaceCadastroCategoria {

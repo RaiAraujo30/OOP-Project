@@ -1,4 +1,4 @@
-package com.example.demo.negocio.cadastro.exception;
+package com.example.demo.negocio.cadastro.exception.exceptionFuncionario;
 
 public class FuncionarioDuplicadoException extends Exception {
     private static final long serialVersionUID = 1L;

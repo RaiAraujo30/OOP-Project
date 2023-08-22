@@ -1,4 +1,4 @@
-package com.example.demo.negocio.cadastro.exception;
+package com.example.demo.negocio.cadastro.exception.exceptionCategoria;
 
 public class CategoriaDuplicadaException extends Exception{
     private static final long serialVersionUID = 1L;

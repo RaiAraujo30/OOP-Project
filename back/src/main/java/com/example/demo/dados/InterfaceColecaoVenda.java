@@ -13,7 +13,9 @@ import com.example.demo.negocio.basica.Venda;
 public interface InterfaceColecaoVenda extends JpaRepository<Venda, Long> {
     
     public Venda findById(long id);
+    public List<Venda> findByData(Date data);
     public List<Venda> findByDataBetween(Date dataInicio, Date dataFim);
+    public List<Venda> findByTotal (double valor);
     public List<Venda> findByTotalGreaterThanEqual(double valor);
     public List<Venda> findByTotalLessThanEqual(double valor);
     public List<Venda> findByClienteNomeContainingIgnoreCase(String nome);
