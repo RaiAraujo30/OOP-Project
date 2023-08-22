@@ -1,0 +1,36 @@
+.login{
+    width: 220vb;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.loginbox{
+    margin-top: 10px;
+    width: 290px;
+    height: 130px;
+    background-color: #e2df9e;
+    border:  #e2df9e;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.formboxemail{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.formboxpassword{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.loginbutton{
+    margin-top: 15px;
+    float: right;
+    margin-right: 15px;
+    width: 100px;
+    height: 30px;
+    background-color: #9aa572;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
