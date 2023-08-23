@@ -37,6 +37,10 @@ public class RelatorioVendas {
     public void setTotalVendas(double totalVendas) {
         this.totalVendas = totalVendas;
     }
+    
+    public void incrementarTotalVendas(double totalVenda) {
+        this.totalVendas += totalVenda;
+    }
 
     public RelatorioVendas(Date periodo) {
         this.data = new Date();

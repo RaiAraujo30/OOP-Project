@@ -23,9 +23,6 @@ public class CadastroRelatorioVendas implements InterfaceCadastroRelatorioVendas
     public List<RelatorioVendas> listarRelatoriosVendas() {
         return colecaoRelatorioVendas.findAll();
     }
-
-   
-    
     
 
     public List<RelatorioVendas> buscarRelatoriosVendasPorData(Date data) {

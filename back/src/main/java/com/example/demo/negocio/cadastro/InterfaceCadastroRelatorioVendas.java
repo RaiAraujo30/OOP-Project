@@ -8,7 +8,7 @@ import com.example.demo.negocio.basica.RelatorioVendas;
 
 public interface InterfaceCadastroRelatorioVendas {
 
-    RelatorioVendas salvarRelatorioVendas(RelatorioVendas relatorioVendas);
+    RelatorioVendas salvarRelatorioVendas(RelatorioVendas relatorio);
 
     List<RelatorioVendas> listarRelatoriosVendas();
 

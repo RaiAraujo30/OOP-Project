@@ -18,6 +18,7 @@ public class Item {
     private Produto produto;
     
     private int quantidade;
+    
     public long getId() {
         return id;
     }
@@ -30,6 +31,7 @@ public class Item {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
+    
     public int getQuantidade() {
         return quantidade;
     }

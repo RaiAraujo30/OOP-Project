@@ -27,8 +27,6 @@ public class Categoria {
     public void setNomecategoria(String nomecategoria) {
         this.nomecategoria = nomecategoria;
     }
-
-    
     public Categoria(String nomecategoria) {
         this.nomecategoria = nomecategoria;
     }
