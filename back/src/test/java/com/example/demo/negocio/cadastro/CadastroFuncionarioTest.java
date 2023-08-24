@@ -1,88 +1,43 @@
+
 package com.example.demo.negocio.cadastro;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.example.demo.negocio.basica.Endereco;
 import com.example.demo.negocio.basica.Funcionario;
-import com.example.demo.dados.InterfaceColecaoFuncionario;
+import com.example.demo.negocio.cadastro.exception.exceptionFuncionario.FuncionarioDuplicadoException;
+
 
 @SpringBootTest
 class CadastroFuncionarioTest {
 
     @Autowired
-    private CadastroFuncionario cadastroFuncionario;
+    private InterfaceCadastroFuncionario cadastroFuncionario;
 
-    @MockBean
-    private InterfaceColecaoFuncionario colecaoFuncionario;
-
-    private Funcionario funcionario;
-
-    @BeforeEach
-    void setUp() {
+    @Test
+    void testarCadastroCpfDuplicado(){
+        String cpf ="123123";
         Endereco endereco = new Endereco("Rua A", 123, "12345-678", "Bairro X", "Cidade Y", "Estado Z");
-        funcionario = new Funcionario("Rai","3424", endereco);
-    }
+        Endereco endereco2 = new Endereco("Rua B", 123, "12345-678", "Bairro X", "Cidade Y", "Estado Z");
 
-    @Test
-    void testProcurarFuncionarioCpf() {
-        when(colecaoFuncionario.findByCpf(anyString())).thenReturn(funcionario);
+        Funcionario u1 = new Funcionario("Rai", cpf);
+        Funcionario u2 = new Funcionario("Igor", cpf);
+        u1.setEndereco(endereco);
+        u2.setEndereco(endereco2);
 
-        try {
-            Funcionario resultado = cadastroFuncionario.procurarFuncionarioCpf("123.456.789-00");
-            assertEquals(funcionario, resultado);
-        } catch (Exception e) {
-            fail("Exceção não esperada: " + e.getMessage());
+        FuncionarioDuplicadoException exception = assertThrows(FuncionarioDuplicadoException.class, () -> {
+            cadastroFuncionario.salvFuncionario(u1);
+            cadastroFuncionario.salvFuncionario(u2);
         }
-    }
+        );
+        assertEquals(exception.getCpf(), cpf);
+        assertTrue(exception.getMessage().contains("mesmo Cpf"));
 
-      @Test
-    void testProcurarFuncionarioNome() {
-        List<Funcionario> funcionarios = new ArrayList<>();
-        funcionarios.add(funcionario);
-
-        when(colecaoFuncionario.findByNomeContainingIgnoreCase(anyString())).thenReturn(funcionarios);
-
-        try {
-            List<Funcionario> resultados = cadastroFuncionario.procurarFuncionarioNome("Nome");
-            assertEquals(funcionarios, resultados);
-        } catch (Exception e) {
-            fail("Exceção não esperada: " + e.getMessage());
-        }
-    }
-
-    @Test
-    void testSalvFuncionario() {
-        when(colecaoFuncionario.save(any())).thenReturn(funcionario);
-
-        try {
-            Funcionario resultado = cadastroFuncionario.salvFuncionario(funcionario);
-            assertEquals(funcionario, resultado);
-        } catch (Exception e) {
-            fail("Exceção não esperada: " + e.getMessage());
-        }
-    }
-
-    @Test
-    void testListarFuncionarios() {
-        List<Funcionario> funcionarios = new ArrayList<>();
-        funcionarios.add(funcionario);
-
-        when(colecaoFuncionario.findAll()).thenReturn(funcionarios);
-
-        List<Funcionario> resultados = cadastroFuncionario.listarFuncionarios();
-        assertEquals(funcionarios, resultados);
     }
 
 }

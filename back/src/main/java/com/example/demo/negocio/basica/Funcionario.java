@@ -2,7 +2,6 @@ package com.example.demo.negocio.basica;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
 @Entity
+
 public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,10 +47,15 @@ public class Funcionario {
         this.endereco = endereco;
     }
 
-    public Funcionario(String nome, String cpf, Endereco endereco) {
+
+    
+    public Funcionario() {
+    }
+
+    public Funcionario(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
-        this.endereco = endereco;
+        
     }
 
 }

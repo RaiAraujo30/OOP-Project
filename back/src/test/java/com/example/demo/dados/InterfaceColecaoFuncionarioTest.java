@@ -21,7 +21,8 @@ class InterfaceColecaoFuncionarioTest {
         Endereco endereco = new Endereco("Rua A", 123, "12345-678", "Bairro X", "Cidade Y", "Estado Z");
 
         long qtdFuncionario = colecaoFuncionario.count();
-        Funcionario u = new Funcionario("igor", "2314354", endereco);
+        Funcionario u = new Funcionario("igor", "2314354");
+        u.setEndereco(endereco);
 
         // interação
         colecaoFuncionario.save(u);

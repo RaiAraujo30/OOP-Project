@@ -30,8 +30,8 @@ public class Gerente extends Funcionario {
     @OneToMany
     private List<RelatorioVendas> relatorios;
 
-    public Gerente(String nome, String cpf, Endereco endereco) {
-        super(nome, cpf,endereco);
+    public Gerente(String nome, String cpf) {
+        super(nome, cpf);
         this.relatorios = new ArrayList<>();
     }
 
