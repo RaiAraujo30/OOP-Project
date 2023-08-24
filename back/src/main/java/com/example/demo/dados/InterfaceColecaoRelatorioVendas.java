@@ -15,7 +15,7 @@ public interface InterfaceColecaoRelatorioVendas extends JpaRepository<Relatorio
     public RelatorioVendas findById(long id);
 
     public List<RelatorioVendas> findByData(Date data);
-
+    List<RelatorioVendas> findByDataInicioBetween(Date dataInicio, Date dataFim);
     public List<RelatorioVendas> findByTotalVendas(double totalVendas);
 
     public List<RelatorioVendas> findByTotalVendasGreaterThanEqual(double totalVendas);

@@ -99,19 +99,22 @@ public class Venda {
         this.total = 0.0;
     }
 
-    public void adicionarItem(Item item) {
+    public void adicionarItem(Produto produto, int quantidade) {
+        Item item = new Item(produto, quantidade);
         itens.add(item);
-        total += item.getTotal();
     }
 
     public void removerItem(Item item) {
         itens.remove(item);
-        total -= item.getTotal();
+    }
+    
+    public double calcularTotal() {
+        double total = 0.0;
+        for (Item item : itens) {
+            total += item.getTotal();
+        }
+        return total;
     }
 
-    public void realizarVenda(List<Item> itens) {
-        for (Item item : itens) {
-            adicionarItem(item);
-        }
-    }
+    
 }

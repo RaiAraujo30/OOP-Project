@@ -16,7 +16,9 @@ public class RelatorioVendas {
 
     private long id;
     private Date data;
-    private Date periodo;
+    private Date dataInicio;
+    private Date dataFim;
+    
     private double totalVendas;
 
     public Date getData() {
@@ -25,11 +27,17 @@ public class RelatorioVendas {
     public void setData(Date data) {
         this.data = data;
     }
-    public Date getPeriodo() {
-        return periodo;
+    public Date getDataInicio() {
+        return dataInicio;
     }
-    public void setPeriodo(Date periodo) {
-        this.periodo = periodo;
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+    public Date getDataFim() {
+        return dataFim;
+    }
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
     }
     public double getTotalVendas() {
         return totalVendas;
@@ -42,9 +50,17 @@ public class RelatorioVendas {
         this.totalVendas += totalVenda;
     }
 
-    public RelatorioVendas(Date periodo) {
-        this.data = new Date();
-        this.periodo = periodo;
+    public RelatorioVendas() {
+        this.totalVendas = 0.0; // Inicialmente o total de vendas é zero
+    }
+    
+    public RelatorioVendas(Date data) {
+        this.data = data;
+        this.totalVendas = 0.0;
+    }
+    public RelatorioVendas(Date dataInicio, Date dataFim) {
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
         this.totalVendas = 0.0; // Inicialmente o total de vendas é zero
     }
 

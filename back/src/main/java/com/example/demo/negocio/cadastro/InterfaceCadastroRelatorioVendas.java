@@ -13,8 +13,10 @@ public interface InterfaceCadastroRelatorioVendas {
     List<RelatorioVendas> listarRelatoriosVendas();
 
     List<RelatorioVendas> buscarRelatoriosVendasPorData(Date data);
+    
+    List<RelatorioVendas> buscarRelatoriosVendasPorPeriodo(Date dataInicio, Date dataFim);
 
     List<RelatorioVendas> buscarRelatoriosVendasPorTotalVendas(double totalVendas);
-
+    
     List<RelatorioVendas> buscarRelatoriosVendasComTotalVendasMaiorOuIgual(double totalVendas);
 }

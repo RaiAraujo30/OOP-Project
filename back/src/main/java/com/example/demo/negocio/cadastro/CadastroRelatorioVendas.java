@@ -15,6 +15,7 @@ public class CadastroRelatorioVendas implements InterfaceCadastroRelatorioVendas
 
     @Autowired
     private InterfaceColecaoRelatorioVendas colecaoRelatorioVendas;
+    
 
     public RelatorioVendas salvarRelatorioVendas(RelatorioVendas relatorioVendas) {
         return colecaoRelatorioVendas.save(relatorioVendas);
@@ -27,6 +28,10 @@ public class CadastroRelatorioVendas implements InterfaceCadastroRelatorioVendas
 
     public List<RelatorioVendas> buscarRelatoriosVendasPorData(Date data) {
         return colecaoRelatorioVendas.findByData(data);
+    }
+
+    public List<RelatorioVendas> buscarRelatoriosVendasPorPeriodo(Date dataInicio, Date dataFim){
+        return colecaoRelatorioVendas.findByDataInicioBetween(dataInicio, dataFim);
     }
 
     public List<RelatorioVendas> buscarRelatoriosVendasPorTotalVendas(double totalVendas) {
