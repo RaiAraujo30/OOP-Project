@@ -43,6 +43,9 @@ public class Gerente extends Funcionario {
     public List<RelatorioVendas> getRelatorios() {
         return relatorios;
     }
+
+
+    
 }
     
     

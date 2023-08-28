@@ -9,7 +9,9 @@ public class FuncionarioNaoEncontradoException extends Exception {
         this.FuncionarioId = FuncionarioId;
     }
 
-    public Long FuncionarioId() {
+    public Long getFuncionarioId() {
         return FuncionarioId;
     }
+
+    
 }

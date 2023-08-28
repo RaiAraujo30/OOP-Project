@@ -34,6 +34,9 @@ public class Marcas {
     public Marcas(String nomemarca) {
         this.nomemarca = nomemarca;
     }
+
+    public Marcas() {
+    }
     
     
     

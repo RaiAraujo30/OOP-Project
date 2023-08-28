@@ -1,4 +1,4 @@
- /* 
+
 package com.example.demo.negocio.fachada;
 
 import java.util.Date;
@@ -192,9 +192,6 @@ public class Fachada {
     public Funcionario procurarFuncionarioCpf (String cpf) throws FuncionarioInvalidoException{
         return cadastroFuncionario.procurarFuncionarioCpf(cpf);
     }
-    public List<Funcionario> procurarFuncionarioNome(String nome)throws FuncionarioInvalidoException{
-        return cadastroFuncionario.procurarFuncionarioNome(nome);
-    }
     public Funcionario salvFuncionario(Funcionario funcionario) throws FuncionarioDuplicadoException{
         return cadastroFuncionario.salvFuncionario(funcionario);
     }
@@ -315,4 +312,4 @@ public class Fachada {
     }
     
         }
-        */
+        

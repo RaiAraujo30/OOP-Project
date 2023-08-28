@@ -61,4 +61,7 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+    public Cliente() {
+    }
+
 }

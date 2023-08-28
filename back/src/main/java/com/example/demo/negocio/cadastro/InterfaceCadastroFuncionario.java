@@ -12,8 +12,7 @@ public interface InterfaceCadastroFuncionario {
 
     Funcionario procurarFuncionarioCpf (String cpf) throws  FuncionarioInvalidoException;
 
-    List<Funcionario> procurarFuncionarioNome(String nome)
-        throws FuncionarioInvalidoException;
+    
 
     Funcionario salvFuncionario(Funcionario funcionario) throws FuncionarioDuplicadoException;
 

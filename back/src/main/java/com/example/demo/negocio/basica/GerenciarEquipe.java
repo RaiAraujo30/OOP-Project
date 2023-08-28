@@ -36,6 +36,8 @@ public class GerenciarEquipe {
         this.equipe = new ArrayList<>();
     }
 
+    
+
     public void adicionarMembro(Funcionario membro) {
         equipe.add(membro);
     }

@@ -35,8 +35,8 @@ class CadastroFuncionarioTest {
             cadastroFuncionario.salvFuncionario(u2);
         }
         );
-        assertEquals(exception.getCpf(), cpf);
-        assertTrue(exception.getMessage().contains("mesmo Cpf"));
+        assertEquals(exception.getCpf(),cpf);
+        assertTrue(exception.getMessage().contains("mesmo cpf"));
 
     }
 

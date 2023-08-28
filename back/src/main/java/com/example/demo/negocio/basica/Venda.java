@@ -84,6 +84,9 @@ public class Venda {
 
     
 
+    public Venda() {
+    }
+
     public Venda(Cliente cliente,Date data, double total) {
         this.data = data;
         this.total = total;

@@ -55,6 +55,8 @@ public class FormaDePagamento {
         this.pix = pix;
         this.hibrido = hibrido;
     }
+    public FormaDePagamento() {
+    }
 
     
 }

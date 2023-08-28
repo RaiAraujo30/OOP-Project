@@ -13,4 +13,6 @@ public class FuncionarioInvalidoException extends Exception {
     public String getCpf() {
         return cpf;
     }
+
+    
 }

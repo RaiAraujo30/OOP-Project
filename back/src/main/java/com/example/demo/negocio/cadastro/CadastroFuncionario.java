@@ -14,6 +14,7 @@ import com.example.demo.dados.InterfaceColecaoFuncionario;
 @Service
 
 public class CadastroFuncionario implements InterfaceCadastroFuncionario {
+
     @Autowired
     private InterfaceColecaoFuncionario colecaoFuncionario;
 
@@ -23,15 +24,6 @@ public class CadastroFuncionario implements InterfaceCadastroFuncionario {
             throw new FuncionarioInvalidoException(cpf);
         }
         return funcionario;
-    }
-
-    public List<Funcionario> procurarFuncionarioNome(String nome)
-            throws FuncionarioInvalidoException {
-        List<Funcionario> funcionarios = colecaoFuncionario.findByNomeContainingIgnoreCase(nome);
-        if (funcionarios.isEmpty()) {
-            throw new FuncionarioInvalidoException(nome);
-        }
-        return funcionarios;
     }
 
     public Funcionario salvFuncionario(Funcionario funcionario) throws FuncionarioDuplicadoException {

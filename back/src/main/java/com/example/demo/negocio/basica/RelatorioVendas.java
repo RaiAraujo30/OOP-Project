@@ -63,7 +63,7 @@ public class RelatorioVendas {
         this.dataFim = dataFim;
         this.totalVendas = 0.0; // Inicialmente o total de vendas é zero
     }
-
+ 
     
 
 }

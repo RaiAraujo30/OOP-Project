@@ -3,7 +3,6 @@ package com.example.demo.negocio.cadastro;
 import java.util.Date;
 import java.util.List;
 
-
 import com.example.demo.negocio.basica.Venda;
 import com.example.demo.negocio.cadastro.exception.exceptionVenda.VendaInvalidaException;
 import com.example.demo.negocio.cadastro.exception.exceptionVenda.VendaNaoEncontradaException;
