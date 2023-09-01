@@ -16,7 +16,6 @@ public class Gerente extends Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-
     private long id;
 
     public long getId() {
@@ -30,8 +29,8 @@ public class Gerente extends Funcionario {
     @OneToMany
     private List<RelatorioVendas> relatorios;
 
-    public Gerente(String nome, String cpf) {
-        super(nome, cpf);
+    public Gerente(String nome, String cpf, Endereco endereco) {
+        super(nome, cpf, endereco);
         this.relatorios = new ArrayList<>();
     }
 
@@ -44,8 +43,4 @@ public class Gerente extends Funcionario {
         return relatorios;
     }
 
-
-    
 }
-    
-    

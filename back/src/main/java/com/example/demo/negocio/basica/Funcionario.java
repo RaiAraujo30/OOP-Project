@@ -47,15 +47,13 @@ public class Funcionario {
         this.endereco = endereco;
     }
 
-
-    
     public Funcionario() {
     }
 
-    public Funcionario(String nome, String cpf) {
+    public Funcionario(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
-        
+        this.endereco = endereco;
     }
 
 }

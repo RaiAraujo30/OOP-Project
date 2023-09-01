@@ -5,7 +5,7 @@ public class FuncionarioDuplicadoException extends Exception {
 	private String cpf;
 
 	public FuncionarioDuplicadoException(String cpf) {
-		super("Não é possível cadastrar dois usuários com o mesmo cpf");
+		super("Não é possível cadastrar dois funcionarios com o mesmo cpf");
 		this.cpf = cpf;
 	}
 
