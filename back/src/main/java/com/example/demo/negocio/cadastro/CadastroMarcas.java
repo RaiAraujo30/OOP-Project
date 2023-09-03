@@ -17,8 +17,8 @@ public class CadastroMarcas implements InterfaceCadastroMarcas {
     @Autowired
     private InterfaceColecaoMarcas colecaoMarcas;
 
-    public Marcas procurarMarcaNomemarca(String nomemarca) 
-    throws MarcaInvalidaException {
+    public Marcas procurarMarcaNomemarca(String nomemarca)
+            throws MarcaInvalidaException {
         Marcas marca = colecaoMarcas.findByNomemarcaContainingIgnoreCase(nomemarca);
         if (marca == null) {
             throw new MarcaInvalidaException(nomemarca);
@@ -26,8 +26,8 @@ public class CadastroMarcas implements InterfaceCadastroMarcas {
         return marca;
     }
 
-    public Marcas salvarMarca(Marcas marca) 
-    throws MarcaDuplicadaException {
+    public Marcas salvarMarca(Marcas marca)
+            throws MarcaDuplicadaException {
         try {
             procurarMarcaNomemarca(marca.getNomemarca());
             throw new MarcaDuplicadaException(marca.getNomemarca());
@@ -48,13 +48,12 @@ public class CadastroMarcas implements InterfaceCadastroMarcas {
         return colecaoMarcas.findById(id).orElse(null);
     }
 
-    public void removerMarcaId(Long id) 
-    throws MarcaNaoEncontradaException {
+    public void removerMarcaId(Long id)
+            throws MarcaNaoEncontradaException {
         if (!verificarExistenciaMarcaId(id)) {
             throw new MarcaNaoEncontradaException(id);
         }
         colecaoMarcas.deleteById(id);
     }
 
-    
 }

@@ -1,6 +1,7 @@
 package com.example.demo.comunicacao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +28,9 @@ public class CategoriaController {
     public Fachada fachada;
 
     @PostMapping("/salvarCategoria")
-    public ResponseEntity<?> salvarCategoria(@RequestBody String nomeCategoria) {
+    public ResponseEntity<?> salvarCategoria(@RequestBody Map<String, String> requestBody) {
         try {
+            String nomeCategoria = requestBody.get("categoria"); // Acesse o nome da categoria no JSON
             Categoria categoria = new Categoria(nomeCategoria);
             categoria = fachada.salvarCategoria(categoria);
             return new ResponseEntity<>(categoria, HttpStatus.CREATED);

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,12 +22,12 @@ public class Venda {
 
     private long id;
     private Date data;
-    private double total;
 
     @ManyToOne
     private Funcionario funcionario;
 
     @OneToMany
+    @Cascade(CascadeType.ALL)
     private List<Item> itens;
 
     @ManyToOne
@@ -33,6 +35,16 @@ public class Venda {
 
     @ManyToOne
     private Cliente cliente;
+
+    private double total;
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
     public List<Item> getItens() {
         return itens;
@@ -58,14 +70,6 @@ public class Venda {
         this.data = data;
     }
 
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
     public Funcionario getFuncionario() {
         return funcionario;
     }
@@ -82,21 +86,14 @@ public class Venda {
         this.formaDePagamento = formaDePagamento;
     }
 
-    
-
     public Venda() {
-    }
-
-    public Venda(Cliente cliente,Date data, double total) {
-        this.data = data;
-        this.total = total;
-        this.cliente = cliente;
+        this.itens = new ArrayList<>();
+        this.data = new Date();
     }
 
     public Venda(Cliente cliente, Funcionario funcionario) {
         this.cliente = cliente;
         this.funcionario = funcionario;
-
         this.itens = new ArrayList<>();
         this.data = new Date();
         this.total = 0.0;
@@ -110,7 +107,7 @@ public class Venda {
     public void removerItem(Item item) {
         itens.remove(item);
     }
-    
+
     public double calcularTotal() {
         double total = 0.0;
         for (Item item : itens) {
@@ -119,5 +116,4 @@ public class Venda {
         return total;
     }
 
-    
 }

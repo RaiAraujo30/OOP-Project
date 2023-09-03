@@ -24,18 +24,20 @@ import com.example.demo.negocio.cadastro.InterfaceCadastroMarcas;
 import com.example.demo.negocio.cadastro.InterfaceCadastroProduto;
 import com.example.demo.negocio.cadastro.InterfaceCadastroRelatorioVendas;
 import com.example.demo.negocio.cadastro.InterfaceCadastroVenda;
+import com.example.demo.negocio.cadastro.exception.ExceptionItem.ItemvazioException;
 import com.example.demo.negocio.cadastro.exception.exceptionCategoria.CategoriaDuplicadaException;
 import com.example.demo.negocio.cadastro.exception.exceptionCategoria.CategoriaInvalidaException;
 import com.example.demo.negocio.cadastro.exception.exceptionCliente.ClienteDuplicadoExcerption;
 import com.example.demo.negocio.cadastro.exception.exceptionCliente.ClienteInvalidoException;
 import com.example.demo.negocio.cadastro.exception.exceptionCliente.ClienteNaoEncontradoException;
+import com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento.FormaDePagamentoDuplicadaException;
+
 import com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento.FormaDePagamentoNaoEncontradaException;
 import com.example.demo.negocio.cadastro.exception.exceptionFuncionario.FuncionarioDuplicadoException;
 import com.example.demo.negocio.cadastro.exception.exceptionFuncionario.FuncionarioInvalidoException;
 import com.example.demo.negocio.cadastro.exception.exceptionFuncionario.FuncionarioNaoEncontradoException;
 import com.example.demo.negocio.cadastro.exception.exceptionMarcas.MarcaInvalidaException;
 import com.example.demo.negocio.cadastro.exception.exceptionProduto.ProdutoDuplicadoException;
-import com.example.demo.negocio.cadastro.exception.exceptionProduto.ProdutoIdInvalidoException;
 import com.example.demo.negocio.cadastro.exception.exceptionProduto.ProdutoInvalidoException;
 import com.example.demo.negocio.cadastro.exception.exceptionProduto.ProdutoNaoEncontradoException;
 import com.example.demo.negocio.cadastro.exception.exceptionVenda.VendaInvalidaException;
@@ -61,37 +63,47 @@ public class Fachada {
     @Autowired
     private InterfaceCadastroRelatorioVendas cadastroRelatorioVendas;
 
-    public Venda realizarVenda(Cliente cliente, List<Item> itens) throws ProdutoIdInvalidoException {
-        double totalVenda = 0.0;
+    public Venda realizarVenda(Cliente cliente, Funcionario funcionario, List<Item> itens,
+            FormaDePagamento formaDePagamento) throws VendaInvalidaException, ClienteInvalidoException,
+            FuncionarioInvalidoException, ItemvazioException, FormaDePagamentoDuplicadaException {
+        // Verifique se os parâmetros obrigatórios foram fornecidos
 
+        if (cliente == null) {
+            throw new ClienteInvalidoException("Cliente nao cadastrado");
+        }
+
+        if (funcionario == null) {
+            throw new FuncionarioInvalidoException(null);
+        }
+        if (itens == null || itens.isEmpty()) {
+            throw new ItemvazioException("Lista de itens não informada");
+        }
+        if (formaDePagamento == null) {
+            throw new FormaDePagamentoDuplicadaException("Forma de pagamento não especificada");
+        }
+
+        // Crie uma nova instância de Venda
+        Venda venda = new Venda(cliente, funcionario);
+
+        // Adicione os itens à venda
         for (Item item : itens) {
-            Produto produto = cadastroProduto.localizarProdutoPorId(item.getProduto().getId());
-
-            if (produto == null) {
-                throw new ProdutoIdInvalidoException(item.getProduto().getId());
-            }
-
-            totalVenda += produto.getPreco() * item.getQuantidade();
+            venda.adicionarItem(item.getProduto(), item.getQuantidade());
         }
 
-        // Criar a venda
-        Venda venda = new Venda(cliente, new Date(), totalVenda);
-        venda = cadastroVenda.salvarVenda(venda);
+        // Configure a forma de pagamento
+        venda.setFormaDePagamento(formaDePagamento);
 
-        Date dataAtual = new Date();
-        List<RelatorioVendas> relatorios = cadastroRelatorioVendas.buscarRelatoriosVendasPorData(dataAtual);
-        RelatorioVendas relatorio;
-        if (relatorios.isEmpty()) {
-            relatorio = new RelatorioVendas(dataAtual);
-            relatorio = cadastroRelatorioVendas.salvarRelatorioVendas(relatorio);
-        } else {
-            relatorio = relatorios.get(0);
-        }
+        // Calcule o total da venda
+        double total = venda.calcularTotal();
 
-        // Incrementar o total de vendas no relatório
-        relatorio.incrementarTotalVendas(totalVenda);
-        cadastroRelatorioVendas.salvarRelatorioVendas(relatorio);
+        // Atualize o total da venda
+        venda.setTotal(total);
 
+        // Salve a venda no sistema
+        cadastroVenda.salvarVenda(venda);
+        // venda = vendaRepository.salvar(venda);
+
+        // Retorne a venda realizada
         return venda;
     }
 
@@ -180,6 +192,11 @@ public class Fachada {
     public void removerClienteId(Long id)
             throws ClienteNaoEncontradoException {
         cadastroCliente.removerClienteId(id);
+    }
+
+    public FormaDePagamento salvarFormaDePagamento(FormaDePagamento formaDePagamento)
+            throws FormaDePagamentoDuplicadaException {
+        return cadastroFormaDePagamento.salvarFormaDePagamento(formaDePagamento);
     }
 
     public List<FormaDePagamento> listarFormasDePagamento() {

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.negocio.basica.Categoria;
+import com.example.demo.negocio.basica.Marcas;
 import com.example.demo.negocio.basica.Produto;
 import com.example.demo.negocio.cadastro.exception.exceptionMarcas.MarcaInvalidaException;
 import com.example.demo.negocio.cadastro.exception.exceptionMarcas.MarcaNaoEncontradaException;
@@ -31,6 +33,11 @@ public class ProdutoController {
     public ResponseEntity<?> cadastrarProduto(@RequestBody Produto produtoBody) {
 
         try {
+
+            Marcas marca = fachada.localizarMarcaId(produtoBody.getMarca().getId());
+            produtoBody.setMarca(marca);
+            Categoria categoria = fachada.localizarCategoriaId(produtoBody.getCategoria().getId());
+            produtoBody.setCategoria(categoria);
             Produto produto = new Produto(produtoBody.getNome(), produtoBody.getPreco(), produtoBody.getMarca(),
                     produtoBody.getCategoria());
             produto = fachada.salvarProduto(produto);

@@ -1,6 +1,7 @@
 package com.example.demo.comunicacao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +28,9 @@ public class MarcaController {
     public Fachada fachada;
 
     @PostMapping("/salvarMarca")
-    public ResponseEntity<?> salvarMarca(@RequestBody String nomeMarca) {
+    public ResponseEntity<?> salvarMarca(@RequestBody Map<String, String> requestBody) {
         try {
+            String nomeMarca = requestBody.get("marca"); // Acesse o nome da marca no JSON
             Marcas marca = new Marcas(nomeMarca);
             marca = fachada.salvarMarca(marca);
             return new ResponseEntity<>(marca, HttpStatus.CREATED);
