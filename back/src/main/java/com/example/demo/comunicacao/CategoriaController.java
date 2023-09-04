@@ -39,7 +39,7 @@ public class CategoriaController {
         }
     }
 
-    @GetMapping("/listarCategorias")
+    @GetMapping("/salvarCategoria")
     public ResponseEntity<List<Categoria>> listarCategoria() {
         List<Categoria> categorias = fachada.listarCategorias();
         return new ResponseEntity<>(categorias, HttpStatus.OK);

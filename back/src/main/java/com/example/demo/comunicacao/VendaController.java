@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.negocio.basica.Cliente;
+import com.example.demo.negocio.basica.FormaDePagamento;
 import com.example.demo.negocio.basica.Funcionario;
 import com.example.demo.negocio.basica.Item;
 import com.example.demo.negocio.basica.Produto;
@@ -41,6 +42,9 @@ public class VendaController {
             Funcionario funcionario = fachada.localizarFuncionario(vendaBody.getFuncionario().getId());
             vendaBody.setFuncionario(funcionario);
             Cliente cliente = fachada.localizarClienteId(vendaBody.getCliente().getId());
+            FormaDePagamento formaDePagamento = fachada
+                    .localizarFormaDePagamentoId(vendaBody.getFormaDePagamento().getId());
+            vendaBody.setFormaDePagamento(formaDePagamento);
             vendaBody.setCliente(cliente);
             Venda novaVenda = fachada.realizarVenda(vendaBody.getCliente(), vendaBody.getFuncionario(),
                     vendaBody.getItens(), vendaBody.getFormaDePagamento());

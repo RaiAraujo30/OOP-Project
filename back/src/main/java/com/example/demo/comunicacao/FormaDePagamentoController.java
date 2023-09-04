@@ -17,9 +17,7 @@ import com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento.For
 
 import com.example.demo.negocio.fachada.Fachada;
 
-import jakarta.annotation.Generated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/FormaDePagamento")
