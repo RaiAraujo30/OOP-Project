@@ -31,7 +31,7 @@ import com.example.demo.negocio.cadastro.exception.exceptionCliente.ClienteDupli
 import com.example.demo.negocio.cadastro.exception.exceptionCliente.ClienteInvalidoException;
 import com.example.demo.negocio.cadastro.exception.exceptionCliente.ClienteNaoEncontradoException;
 import com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento.FormaDePagamentoDuplicadaException;
-
+import com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento.FormaDePagamentoInvalidaException;
 import com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento.FormaDePagamentoNaoEncontradaException;
 import com.example.demo.negocio.cadastro.exception.exceptionFuncionario.FuncionarioDuplicadoException;
 import com.example.demo.negocio.cadastro.exception.exceptionFuncionario.FuncionarioInvalidoException;
@@ -65,7 +65,8 @@ public class Fachada {
 
     public Venda realizarVenda(Cliente cliente, Funcionario funcionario, List<Item> itens,
             FormaDePagamento formaDePagamento) throws VendaInvalidaException, ClienteInvalidoException,
-            FuncionarioInvalidoException, ItemvazioException, FormaDePagamentoDuplicadaException {
+            FuncionarioInvalidoException, ItemvazioException, FormaDePagamentoInvalidaException,
+            ProdutoInvalidoException {
         // Verifique se os parâmetros obrigatórios foram fornecidos
 
         if (cliente == null) {
@@ -79,7 +80,7 @@ public class Fachada {
             throw new ItemvazioException("Lista de itens não informada");
         }
         if (formaDePagamento == null) {
-            throw new FormaDePagamentoDuplicadaException("Forma de pagamento não especificada");
+            throw new FormaDePagamentoInvalidaException("Forma de pagamento não especificada");
         }
 
         // Crie uma nova instância de Venda

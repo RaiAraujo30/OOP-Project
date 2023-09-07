@@ -2,14 +2,14 @@ package com.example.demo.negocio.cadastro.exception.exceptionFormaDePagamento;
 
 public class FormaDePagamentoInvalidaException extends Exception {
     private static final long serialVersionUID = 1L;
-    private String nome;
+    private String nomeFormaDePagamento;
 
-    public FormaDePagamentoInvalidaException(String nome) {
+    public FormaDePagamentoInvalidaException(String nomeFormaDePagamento) {
         super("Forma de pagamento invalida");
-        this.nome = nome;
+        this.nomeFormaDePagamento = nomeFormaDePagamento;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeFormaDePagamento() {
+        return this.nomeFormaDePagamento;
     }
 }
